@@ -77,7 +77,8 @@ public class CourseBpo {
 		
 	}
 	//Ñ¡¿Î
-	public void  addsc(String stuid,String courseid) throws SQLException {
+	public void  addsc(String stuid,String courseid) throws SQLException  {
+		
 		Connection conn = null;
 		PreparedStatement ps = null;
 		try{
@@ -91,6 +92,8 @@ public class CourseBpo {
 		}finally{
 			DBConnection.close(null, ps, conn);
 		}
+		
+		
 		
 	}
 	

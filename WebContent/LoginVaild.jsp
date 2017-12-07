@@ -12,7 +12,7 @@
 	request.setCharacterEncoding("utf-8");
 	response.setCharacterEncoding("utf-8");
 	%>
-	<jsp:useBean id="user" class="jdbc.AdminOperation" scope="session"/>
+	<jsp:useBean id="user" class="jdbc.AdminOperation"/>
 	<jsp:setProperty name="user" property="name"/>
 	<jsp:setProperty name="user" property="password"/>
 	<jsp:setProperty name="user" property="usertype"/>
@@ -22,14 +22,16 @@
 	if(successflag == true){
 		session.setAttribute("username", user.getName());
 		if(user.getUsertype().equals("1")){
-			response.sendRedirect("StudentMain.jsp");
+			response.sendRedirect("Student/StudentMain.jsp");
 		}else if(user.getUsertype().equals("2")){
-			response.sendRedirect("TeacherMain.jsp");
+			response.sendRedirect("Teacher/TeacherMain.jsp");
 		}
 	}else{
-		out.println("登录失败");
+		throw new Exception("用户名或密码错误");
 	}
 	%> --%>
+	
+	
 	<c:set var="successflag" value="${user.login()}"/>
 	<c:if test="${successflag == true }">
 		<c:set var="username" value="${user.getName() }" scope="session"></c:set>
@@ -43,9 +45,11 @@
 		</c:if>
 	</c:if>
 	<c:if test="${successflag != true }">
-		<%
-		out.println("登录失败请重新登录");
-		%>
+		<jsp:forward page="index.jsp">
+				<jsp:param name="error" value="用户名或密码错误！请重新输入"/>
+		</jsp:forward>
 	</c:if>
+	
+	
 </body>
 </html>

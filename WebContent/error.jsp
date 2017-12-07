@@ -8,6 +8,6 @@
    <div id="error">发生了以下错误：</div><br><hr>
    <%=exception.getMessage()%><br><hr>
    <br>
-   请重新登陆：<a href='index.html'>登陆</a>
+   请重新登陆：<a href='index.jsp'>登陆</a>
 </body>
 </html>

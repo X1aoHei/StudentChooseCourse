@@ -110,8 +110,8 @@
 		<table width='800' border='0' cellspacing='0' cellpadding='0' align='center'>
 		<tr><td>课程号</td><td>课程名</td><td>学分</td><td>先修学号</td><td>当前选课人数</td><td>操作</td></tr>
 		<div id="err0">
-		<%-- <%=err %> --%>
-		<c:out value="${err }" default=""/>
+		${param.err}
+		
 		</div>
 		<%-- <%
 		List<CourseBean> course = (List<CourseBean>)request.getAttribute("course");

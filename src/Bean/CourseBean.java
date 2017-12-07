@@ -1,5 +1,12 @@
 package Bean;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import util.DBConnection;
+
 public class CourseBean {
 	private String courseid;
 	private String cname;
@@ -29,6 +36,8 @@ public class CourseBean {
 	public void setCpre(String cpre) {
 		this.cpre = cpre;
 	}
+
+		
 	
 	
 	

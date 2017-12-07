@@ -52,6 +52,9 @@ public class getCourse extends HttpServlet {
 			CourseBpo bpo = new CourseBpo();
 			try {
 				course = bpo.getCourse(courseid, cname);
+				if(course == null||course.size() == 0){
+					err = "未查询到该课程";
+				}
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
